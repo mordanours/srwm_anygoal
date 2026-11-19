@@ -1,0 +1,25 @@
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "srwm-anygoal"
+version = "0.1.0"
+description = "Sparse-Regime Relational World Models (SR-WM) for Compositional Goal-Shift Generalization"
+requires-python = ">=3.10,<3.12"
+dependencies = [
+    "numpy>=1.26",
+    "torch>=2.4",
+    "h5py>=3.10",
+    "pyyaml>=6.0",
+    "tqdm>=4.66",
+]
+
+[project.optional-dependencies]
+anygoal = [
+    "anygoal[eval]==0.1.0",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["srwm*"]
