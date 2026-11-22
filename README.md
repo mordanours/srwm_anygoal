@@ -9,10 +9,14 @@ srwm_anygoal/
 ├── pyproject.toml                   # pip / uv 一键安装配置（核心依赖极轻）
 ├── srwm/
 │   ├── __init__.py
-│   ├── models.py                    # SR-WM（稀疏模式门控 + SE(2) 局部接触标架）与 M0–M3 消融
+│   ├── models.py                    # G0 SR-WM（稀疏模式门控 + SE(2) 局部接触标架）
+│   ├── pusht_models.py              # G1a/b PushT 刚体世界模型
+│   ├── lfs_wm.py                    # G1c 通用 LFS-WM（3帧运动学不变量 + 4墙边界Token + 防塌缩残差锚定损失）
 │   └── env_g0.py                    # G0 2D 推块物理环境与 CEM 规划器
 ├── scripts/
 │   ├── run_g0.py                    # G0 双解离一键复现脚本
+│   ├── run_g1b_pusht.py             # G1b 官方 PushT 评测脚本
+│   ├── run_g1c_pusht.py             # G1c LFS-WM + 分层反捷径评测 + 闭环 CEM 规划脚本
 │   └── extract_anygoal_states.py    # 剔除 AnyGoal .h5 中的 RGB 像素，压成几十 MB 纯状态 .npz
 └── notebooks/
     └── colab_quickstart.ipynb       # Google Colab 一键挂盘、安装、抽状态与训练模板
